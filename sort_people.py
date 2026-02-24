@@ -4,14 +4,29 @@ class Solution:
         for height, name in zip(heights, names):
             record[height] = name
 
+        #Insertion sort
+        for i in range(1, len(heights)):
+            key = heights[i]
+            j = i - 1
+
+            while j >= 0 and heights[j] < key:
+                heights[j+1] = heights[j]
+                j -= 1
+
+            heights[j+1] = key
+
+        # print(heights)
+        
+
+
         # selection sort
-        for i in range(len(heights)):
-            max_index = i
-            for j in range(i+1, len(heights)):
-                if heights[j] > heights[max_index]:
-                    max_index = j
+        # for i in range(len(heights)):
+        #     max_index = i
+        #     for j in range(i+1, len(heights)):
+        #         if heights[j] > heights[max_index]:
+        #             max_index = j
             
-            heights[i], heights[max_index] = heights[max_index], heights[i]
+        #     heights[i], heights[max_index] = heights[max_index], heights[i]
 
         # print(heights)
         
