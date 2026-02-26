@@ -4,16 +4,32 @@ class Solution:
         for height, name in zip(heights, names):
             record[height] = name
 
+        #Counting sort
+        max_height = max(heights)
+        count = [0] * (max_height + 1)
+
+        for height in heights:
+            count[height] += 1
+        
+        target = len(heights) - 1
+        for inx, value in enumerate(count):
+            for _ in range(value):
+                heights[target] = inx
+                target -= 1
+
+        
+        print(heights)
+
         #Insertion sort
-        for i in range(1, len(heights)):
-            key = heights[i]
-            j = i - 1
+        # for i in range(1, len(heights)):
+        #     key = heights[i]
+        #     j = i - 1
 
-            while j >= 0 and heights[j] < key:
-                heights[j+1] = heights[j]
-                j -= 1
+        #     while j >= 0 and heights[j] < key:
+        #         heights[j+1] = heights[j]
+        #         j -= 1
 
-            heights[j+1] = key
+        #     heights[j+1] = key
 
         # print(heights)
         
